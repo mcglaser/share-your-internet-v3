@@ -12,7 +12,15 @@
 
 
 <% if in_this_community? %>
-<p>You're In! </p><br><br>
+
+<% if User.where(community_id: @community.id ).count == 1 %>
+<p>You're the first one here! </p><br><br>
+<% else %>
+<p>Say hello to your neighbors! </p><br><br>
+<% end %>
+
+
+
 <% else %>
 
 <%= button_to "Join This Community", user_in_it_path(@user, :community_id => @community.id), :class => 'altbtn altbtn-lg altbtn-outline', method: 'post' %><br><br><br>
