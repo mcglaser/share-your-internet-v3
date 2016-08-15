@@ -7,7 +7,9 @@ module CommunitiesHelper
   end
 
 
-
+def in_this_community?
+	@user.community_id == @community.id
+end
 
 
 	
