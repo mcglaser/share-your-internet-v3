@@ -5,23 +5,22 @@
 
 <p><%= @community.community_name %></p>
 <p><%= @community.community_address %></p>
-<p><%= @community.community_city %>, <%= @community.community_state %> <%= @community.community_zip %></p><br><br><br><br><br><br><br>
+<p><%= @community.community_city %>, <%= @community.community_state %> <%= @community.community_zip %></p><br>
+
+
+<p>Number of registered residents: <%= User.where(community_id: @community.id ).count %></p><br><br>
+
+
+
+
+<%= button_to "Join This Community", user_in_it_path(@user, :community_id => @community.id), :class => 'altbtn altbtn-lg altbtn-outline', method: 'post' %><br><br><br><br><br><br><br><br><br><br>
+
 
 
 
 <p><%= @community.id %></p>
 <p><%= @user.id %></p>
 <p><%= @user.community_id %></p><br><br>
-
-
-
-
-
-<%= button_to "Join the commmm", user_in_it_path(@user, :community_id => @community.id), :class => 'altbtn altbtn-lg altbtn-outline', method: 'post' %><br><br><br><br><br><br><br><br><br><br>
-
-
-
-
 
 
 </div>
