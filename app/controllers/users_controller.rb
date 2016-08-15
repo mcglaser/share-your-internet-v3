@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     @community_id = params[:community_id] 
     @user.update_attribute(:community_id, @community_id)
     @user.save
-    redirect_to @user
+    redirect_to :back
   end
 
 
