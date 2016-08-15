@@ -29,9 +29,7 @@
 		<%= f.select :internet_speed, ['I do not currently have internet', '56k', '1 Mbps', '5 Mbps', '10 Mbps', '20Mbps', '30 Mbps', '40 Mbps', '50 Mbps', '75 Mbps', '100 Mbps or more', 'Unknown'] %><br><br>
 		<%= f.label :monthly_cost, 'What Is Your Home Internet\'s Monthly Cost? (Leave Blank If You Don\'t Currently Have Internet)' %>
 		<%= f.text_field :monthly_cost %><br><br>
-		<%= f.label :community_name, 'What Is The Name Of Your Community? (Leave Blank If You Don\'t Currently Live In A Named Communnity)' %>
-		<%= f.text_field :community_name %><br><br>
-  <%= f.submit "Save changes" %>
+        <%= f.submit "Save changes", :class => 'altbtn altbtn-lg altbtn-outline' %>
 <% end %>
 
 </div>
