@@ -13,7 +13,9 @@
 
 
 
-<%= button_to "Join This Community", user_in_it_path(@user, :community_id => @community.id), :class => 'altbtn altbtn-lg altbtn-outline', method: 'post' %><br><br><br><br><br><br><br><br><br><br>
+<%= button_to "Join This Community", user_in_it_path(@user, :community_id => @community.id), :class => 'altbtn altbtn-lg altbtn-outline', method: 'post' %><br><br><br>
+
+<p><%= link_to "View Other Communities", communities_path %></p><br><br><br><br><br><br><br>
 
 
 

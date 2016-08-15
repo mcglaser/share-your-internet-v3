@@ -10,10 +10,10 @@
 <% if first_one? %>
 <p>Well you're the first one here. </p><br><br>
 <% else %>
-<h2>There are <%= User.where(zip_code: current_user.zip_code).count %> registered users in zip code <%= current_user.zip_code %> </h2>
+<p>There are <%= User.where(zip_code: current_user.zip_code).count %> registered users in zip code <%= current_user.zip_code %> </p>
 
 
-<p>The following communities have been registered in your zip code:</p><br><br>
+<h2>The following communities have been registered in your zip code:</h2><br><br>
 
 <ul>
 <% User.where(zip_code: current_user.zip_code).sort { |a,b| a.community_name <=> b.community_name }.each do |user| %>

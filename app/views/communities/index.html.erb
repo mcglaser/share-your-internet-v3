@@ -14,7 +14,7 @@
 <h2>There are <%= User.where(zip_code: current_user.zip_code).count %> registered users in zip code <%= current_user.zip_code %> </h2>
 
 
-<p>Click on your community or, if you don't see it, register one below:</p><br><br>
+<h2>Click on your community or, if you don't see it, register one below:</h2>
 
 <ul>
 <% Community.where(community_zip: current_user.zip_code).sort { |a,b| a.community_name <=> b.community_name }.each do |community| %>
