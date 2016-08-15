@@ -3,6 +3,12 @@
 <h1><%= @community.community_name %> - <%= @community.community_city %></h1>
 
 
+<p><%= @community.community_name %></p>
+<p><%= @community.community_address %></p>
+<p><%= @community.community_city %>, <%= @community.community_state %> <%= @community.community_zip %></p><br><br><br><br><br><br><br>
+
+
+
 <p><%= @community.id %></p>
 <p><%= @user.id %></p>
 <p><%= @user.community_id %></p><br><br>
@@ -16,8 +22,6 @@
 
 
 
-<%= link_to "Edit Your Profile", edit_user_path(current_user) %><br>
-<li><%= link_to "All Users", users_path %></li><br>
-<%= link_to "Log out", logout_path, method: :delete %>
+
 
 </div>
