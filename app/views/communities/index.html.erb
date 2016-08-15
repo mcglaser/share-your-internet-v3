@@ -1,0 +1,38 @@
+<div class="stretch">
+<h1>Communities In Your Area</h1>
+
+
+
+
+
+
+
+<% if first_one_here? %>
+<h2>Nobody has registered a community in zip code <%= current_user.zip_code %></h2>
+<h2><%= link_to "Click here to register your community", new_community_path %></h2>
+<% else %>
+<h2>There are <%= User.where(zip_code: current_user.zip_code).count %> registered users in zip code <%= current_user.zip_code %> </h2>
+
+
+<p>Click on your community or, if you don't see it, register it below:</p><br><br>
+
+<ul>
+<% Community.where(community_zip: current_user.zip_code).sort { |a,b| a.community_name <=> b.community_name }.each do |community| %>
+<li>
+<%= link_to community.community_name, community %><br><br>
+</li>
+<% end %>
+</ul>
+
+<br><br><p>If you don't see your Community/Street listed <%= link_to "Click here to register your community", new_community_path %></p>
+
+
+<% end %>
+
+
+
+
+</div>
+
+
+
