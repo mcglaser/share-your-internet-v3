@@ -13,17 +13,26 @@
 
 <% if in_this_community? %>
 
-<% if all_alone? %>
-<p>You're the first one here! </p><br><br>
+  <% if all_alone? %>
+    <p>You're the first one here! </p><br><br>
+  <% else %>
+    <ul>
+    <% User.where(community_id: @community.id).each do |user| %>
+      <li>
+      <%= link_to user.first_name, user_path(user) %> <%= link_to user.last_name[0,1], user_path(user) %><br>
+      <%= user.address_line_one %><br>
+      <%= user.city %>, <%= user.state %> <%= user.zip_code %><br><br>
+      </li>
+    <% end %>
+     </ul>
+  <% end %>
+
+
+
+
 <% else %>
-<p>Say hello to your neighbors! </p><br><br>
-<% end %>
 
-
-
-<% else %>
-
-<%= button_to "Join This Community", user_in_it_path(@user, :community_id => @community.id), :class => 'altbtn altbtn-lg altbtn-outline', method: 'post' %><br><br><br>
+  <%= button_to "Join This Community", user_in_it_path(@user, :community_id => @community.id), :class => 'altbtn altbtn-lg altbtn-outline', method: 'post' %><br><br><br>
 
 <% end %>
 
