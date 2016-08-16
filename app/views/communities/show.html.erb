@@ -16,17 +16,19 @@
   <% if all_alone? %>
     <p>You're the first one here! </p><br><br>
   <% else %>
-  <h2>Choose the person who lives closest to you</h2>
+  <h2>Choose A Neighbor Who Lives Within "Wi-fi" Range Of You</h2>
     <ul>
     <% User.where(community_id: @community.id).each do |user| %>
+      <% unless user == current_user %>
       <li>
       <%= link_to user.first_name.capitalize, user_path(user) %> <%= link_to user.last_name.capitalize[0,1], user_path(user) %><br>
       <%= user.address_line_one %><br>
       <%= user.city %>, <%= user.state %> <%= user.zip_code %><br><br>
       </li>
     <% end %>
+    <% end %>
      </ul>
-  <% end %>
+  <% end %><br><br>
 
 
 
@@ -37,14 +39,11 @@
 
 <% end %>
 
-<p><%= link_to "View Other Communities", communities_path %></p><br><br><br><br><br><br><br>
+<p><%= link_to "Back To List Of Communities", communities_path %></p><br><br><br><br><br><br><br>
 
 
 
 
-<p><%= @community.id %></p>
-<p><%= @user.id %></p>
-<p><%= @user.community_id %></p><br><br>
-<br><br><br><br><br><br>
+
 
 </div>
