@@ -45,7 +45,7 @@
 <p>Internet Speed: <%= @user.internet_speed %></p><br><br>
 <p>Monthly Internet Cost: $<%= @user.monthly_cost.ceil %></p><br><br>
 <% end %>
-<%= link_to "Back To Communities", communities_path %>
+<%= link_to "Back To Your Community", community_path(@user.community_id) %>
 
 
 <% else %>

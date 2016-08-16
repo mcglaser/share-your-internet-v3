@@ -1,51 +1,8 @@
 <div class="stretch">
-<h1>Users In Your Area</h1>
-
-
-
-
-
-
-
-<% if first_one? %>
-<p>Well you're the first one here. </p><br><br>
-<% else %>
-<p>There are <%= User.where(zip_code: current_user.zip_code).count %> registered users in zip code <%= current_user.zip_code %> </p>
-
-
-<h2>The following communities have been registered in your zip code:</h2><br><br>
-
-<ul>
-<% User.where(zip_code: current_user.zip_code).sort { |a,b| a.community_name <=> b.community_name }.each do |user| %>
-<% unless user.community_name.blank? %>
-<li>
-<%= link_to user.community_name, user %>
-<%= user.first_name %><br><br>
-</li>
-<% end %>
-<% end %>
-</ul>
-
-
-
-<p>Users in your zip code also live in the following areas:</p><br><br>
-
-<ul>
-<% User.where(zip_code: current_user.zip_code).sort { |a,b| a.address_line_one <=> b.address_line_one }.each do |user| %>
-<% if user.community_name.blank? %>
-<li>
-<%= link_to user.address_line_one %>
-<%= user.first_name %><br><br>
-</li>
-<% end %>
-<% end %>
-</ul>
-<% end %>
-
-
-
-
-</div>
+<h1>You Do Not Have Access To This Page</h1>
+<h2>Here's a gif of a baby elephant</h2>
+<img src="http://i.imgur.com/49uBzb0.gif"><br><br>
+<%= link_to "Back To Communities", communities_path %>
 
 
 
