@@ -14,6 +14,7 @@
 <% unless @user.address_line_two.blank? %>
 <%= @user.address_line_two %><br><br>
 <% end %>
+<br><br>
 <% if no_internet? %>
 <p>You Do Not Currently Have Internet</p><br><br>
 <% else %>
@@ -31,7 +32,7 @@
 <p>You haven't registered a community yet! </p><br>
 <%= link_to "Click Here To Find A Community Near You", communities_path %>
 <% else %>
-<p>You Are A Resident Of: <%= @user.community.community_name %></p><br><br>
+<p>You Are A Resident Of: <%= link_to @user.community.community_name, community_path(@user.community_id) %></p><br><br>
 <% end %>
 
 
