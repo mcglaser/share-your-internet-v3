@@ -13,7 +13,7 @@
 
 <% if in_this_community? %>
 
-<% if User.where(community_id: @community.id ).count == 1 %>
+<% if all_alone? %>
 <p>You're the first one here! </p><br><br>
 <% else %>
 <p>Say hello to your neighbors! </p><br><br>

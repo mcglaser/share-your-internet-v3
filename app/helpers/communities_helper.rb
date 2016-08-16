@@ -11,6 +11,10 @@ def in_this_community?
 	@user.community_id == @community.id
 end
 
+def all_alone?
+	User.where(community_id: @community.id ).count == 1
+end
+
 
 	
 end
