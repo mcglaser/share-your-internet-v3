@@ -16,6 +16,7 @@
   <% if all_alone? %>
     <p>You're the first one here! </p><br><br>
   <% else %>
+  <h2>Choose the person who lives closest to you</h2>
     <ul>
     <% User.where(community_id: @community.id).each do |user| %>
       <li>
@@ -44,6 +45,6 @@
 <p><%= @community.id %></p>
 <p><%= @user.id %></p>
 <p><%= @user.community_id %></p><br><br>
-
+<br><br><br><br><br><br>
 
 </div>

@@ -3,10 +3,12 @@
 <h1>Your Account</h1>
 
 <%= @user.email %><br><br>
-<%= @user.first_name %><br><br>
-<%= @user.last_name %><br><br>
+<%= @user.first_name %> <%= @user.last_name %><br><br>
 <%= @user.address_line_one %><br><br>
+<% unless @user.address_line_two.blank? %>
 <%= @user.address_line_two %><br><br>
+<% end %>
+<%= @user.city %>, <%= @user.state %> <%= @user.zip_code %><br><br>
 
 
 <% if @user.community_id.blank? %>
