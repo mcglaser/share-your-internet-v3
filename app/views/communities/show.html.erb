@@ -20,7 +20,7 @@
     <ul>
     <% User.where(community_id: @community.id).each do |user| %>
       <li>
-      <%= link_to user.first_name, user_path(user) %> <%= link_to user.last_name[0,1], user_path(user) %><br>
+      <%= link_to user.first_name.capitalize, user_path(user) %> <%= link_to user.last_name.capitalize[0,1], user_path(user) %><br>
       <%= user.address_line_one %><br>
       <%= user.city %>, <%= user.state %> <%= user.zip_code %><br><br>
       </li>
