@@ -67,6 +67,9 @@ module UsersHelper
 	@user.internet_type == "I do not currently have internet"
   end
 
+  def same_community?
+  	@user.community_id == current_user.community_id
+  end
 
 	
 end
