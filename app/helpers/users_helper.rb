@@ -63,7 +63,9 @@ module UsersHelper
   end
 
 
-
+  def no_internet?
+	@user.internet_type == "I do not currently have internet"
+  end
 
 
 	

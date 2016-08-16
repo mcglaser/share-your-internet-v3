@@ -2,6 +2,8 @@
 
 <h1>Your Account</h1>
 
+<p><%= link_to "Edit Your Profile", edit_user_path(current_user) %> | <%= link_to "Log out", logout_path, method: :delete %></p><br><br>
+
 <%= @user.email %><br><br>
 <%= @user.first_name %> <%= @user.last_name %><br><br>
 <%= @user.address_line_one %><br><br>
@@ -9,19 +11,29 @@
 <%= @user.address_line_two %><br><br>
 <% end %>
 <%= @user.city %>, <%= @user.state %> <%= @user.zip_code %><br><br>
-
-
-<% if @user.community_id.blank? %>
-<p>You haven't registered a community yet! </p><br><br>
+<% unless @user.address_line_two.blank? %>
+<%= @user.address_line_two %><br><br>
+<% end %>
+<% if no_internet? %>
+<p>You Do Not Currently Have Internet</p><br><br>
 <% else %>
-<p><%= @user.community_id %></p><br><br>
-<p>You are a resident of: <%= @user.community.community_name %></p><br><br>
+<p>Your Internet Type: <%= @user.internet_type %></p><br><br>
+<p>Your Internet Speed: <%= @user.internet_speed %></p><br><br>
+<p>Your Montly Internet Cost: $<%= @user.monthly_cost.ceil %></p><br><br>
 <% end %>
 
 
 
-<%= link_to "Edit Your Profile", edit_user_path(current_user) %><br>
-<li><%= link_to "All Users", users_path %></li><br>
-<%= link_to "Log out", logout_path, method: :delete %>
+
+
+
+<% if @user.community_id.blank? %>
+<p>You haven't registered a community yet! </p><br>
+<%= link_to "Click Here To Find A Community Near You", communities_path %>
+<% else %>
+<p>You Are A Resident Of: <%= @user.community.community_name %></p><br><br>
+<% end %>
+
+
 
 </div>
