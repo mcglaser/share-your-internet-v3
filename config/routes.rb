@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   
   delete 'logout' => 'sessions#destroy'
 
-  resources :users
-  resources :communities
-
+  get 'average' => 'users#average_internet'
 
   resources :users do
       post 'in_it', action: :in_it
   end
+
+  resources :communities
 
 
 end

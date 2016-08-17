@@ -63,6 +63,10 @@ class UsersController < ApplicationController
     redirect_to :back
   end
 
+  def average_internet
+    @users = User.all
+  end
+
 
   private
   
