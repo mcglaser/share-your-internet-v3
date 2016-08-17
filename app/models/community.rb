@@ -6,4 +6,6 @@ class Community < ActiveRecord::Base
     validates :community_zip, presence: true, numericality: { only_integer: true }, length: { minimum: 5, maximum: 5 }
 
 
+
+
 end

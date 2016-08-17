@@ -62,14 +62,15 @@ module UsersHelper
     User.where(zip_code: current_user.zip_code).count <= 1
   end
 
+  def same_community?
+  	@user.community_id == current_user.community_id
+  end
 
+  
   def no_internet?
 	@user.internet_type == "I do not currently have internet"
   end
 
-  def same_community?
-  	@user.community_id == current_user.community_id
-  end
 
 	
 end

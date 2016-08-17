@@ -15,4 +15,8 @@ uniqueness: true
     validates :monthly_cost, numericality: true, format: { with: VALID_MONEY_REGEX }, :allow_nil => true
 
 
+
+
+
+
 end

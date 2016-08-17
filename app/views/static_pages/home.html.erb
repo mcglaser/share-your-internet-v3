@@ -9,7 +9,7 @@
        <% if !logged_in? %>
          <%= button_to "Start Here", signup_path, :class => "btn btn-lg btn-outline", :method => :get %>
        <% else %>
-         <%= button_to "Start Here", users_path, :class => "btn btn-lg btn-outline", :method => :get %>
+         <%= button_to "Start Here", communities_path, :class => "btn btn-lg btn-outline", :method => :get %>
        <% end %> 
 
 

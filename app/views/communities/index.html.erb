@@ -12,6 +12,7 @@
 <h2><%= link_to "Click here to register your community", new_community_path %></h2>
 <% else %>
 <h2>There are <%= User.where(zip_code: current_user.zip_code).count %> registered users in zip code <%= current_user.zip_code %> </h2>
+<p>Average Internet Cost: $<%= average_internet_cost %></p><br><br>
 
 
 <h2>Click on your community or, if you don't see it, register one below:</h2>
