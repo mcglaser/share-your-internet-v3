@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :users do
       post 'in_it', action: :in_it
+      resources :referrals
   end
 
   resources :communities
