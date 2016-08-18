@@ -4,9 +4,14 @@ class ReferralsController < ApplicationController
 
 
 
-  def new
-  	@referral = Referral.new
+
+
+ def new
+    @referral = Referral.new
   end
+
+
+
 
 
   def show
