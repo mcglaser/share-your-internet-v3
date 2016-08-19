@@ -24,7 +24,7 @@ class ReferralsController < ApplicationController
   def create
     @referral = Referral.new(referral_params)
     if @referral.save
-      redirect_to @referral
+      redirect_to sdfsad
     else
     render 'new'
      end
@@ -45,6 +45,7 @@ class ReferralsController < ApplicationController
 
 
   def index
+    @user = current_user
     @referrals = Referral.all
   end
 
@@ -65,7 +66,7 @@ class ReferralsController < ApplicationController
   
 
     def referral_params
-      params.require(:referral).permit(:referral_first_name, :referral_last_name, :referral_address_line_one, :referral_address_line_two)
+      params.require(:referral).permit(referrals_attributes: [:ref_first_name, :ref_last_name, :ref_address_line_one, :ref_address_line_two])
     end
 
 
