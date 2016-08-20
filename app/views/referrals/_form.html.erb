@@ -1,4 +1,5 @@
-<%= form_for @referral do |f| %>
+<%= form_for rolodex do |f| %>
+  <p>Start %></p>
   <ul>
     <%= f.fields_for :referrals do |referral| %>
     <li>
@@ -8,7 +9,8 @@
       Address Line 2: <%= referral.text_field :ref_address_line_two %><br><br><br>
     </li>
     <% end %>
-    <%= link_to 'Add Referral', referral %><br><br>    
+    <%= link_to 'add referral', rolodex %>    
   </ul>
   <%= f.submit %>
 <% end %>
+

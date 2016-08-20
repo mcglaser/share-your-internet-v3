@@ -1,4 +1,3 @@
-class Referral < ActiveRecord::Base
-	belongs_to :user
-	accepts_nested_attributes_for :referrals
+class Ingredient < ActiveRecord::Base
+  belongs_to :rolodex
 end

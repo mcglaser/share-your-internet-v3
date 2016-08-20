@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817210041) do
+ActiveRecord::Schema.define(version: 20160820052831) do
 
   create_table "communities", force: :cascade do |t|
     t.string   "community_name"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20160817210041) do
     t.string   "ref_address_line_two"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "user_id"
+    t.integer  "rolodex_id"
+  end
+
+  create_table "rolodexes", force: :cascade do |t|
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,5 @@
 class AddUserIdToReferrals < ActiveRecord::Migration
   def change
-    add_column :referrals, :user_id, :integer
+    add_column :referrals, :rolodex_id, :integer
   end
 end
