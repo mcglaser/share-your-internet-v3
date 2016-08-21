@@ -1,6 +1,18 @@
 <div class="stretch">
 
 <h1>New Referral</h1>
+
+<% if @rolodex.errors.any? %>
+    <div id="error_explanation">
+
+      <ul>
+      <% @rolodex.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      <br><br></ul>
+    </div>
+  <% end %>
+
 <h2>Describe The Direction Of Your Neighbor: Above, Below, Side (to the side of you)</h2>
 
  <%= render 'form', rolodex: @rolodex %>
