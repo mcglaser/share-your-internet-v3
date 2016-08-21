@@ -14,7 +14,7 @@
 <% if in_this_community? %>
 
   <% if all_alone? %>
-    <p>You're the first one here! </p><br><br>
+    <h2>We will send your neighbors postcards about our service. <%= link_to 'Refer Your Neighbors', new_user_rolodex_path(current_user.id) %></h2>
   <% else %>
   <h2>Choose A Neighbor Who Lives Within "Wi-fi" Range Of You</h2>
     <ul>
@@ -28,6 +28,8 @@
     <% end %>
     <% end %>
      </ul>
+
+     <h2>Don't see a neighbor that lives close enough? <%= link_to 'Refer Us To One', new_user_rolodex_path(current_user.id) %></h2>
   <% end %><br><br>
 
 
