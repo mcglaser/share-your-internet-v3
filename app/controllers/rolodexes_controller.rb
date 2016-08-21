@@ -21,9 +21,14 @@ class RolodexesController < ApplicationController
   end
 
   def create
-    rolodex = Rolodex.create(rolodex_params)
-    redirect_to community_path(current_user.community.id)
+    @rolodex = Rolodex.create(rolodex_params)
+    if @rolodex.save
+      redirect_to community_path(current_user.community.id)
+    else
+    render 'new'
+     end
   end
+
 
   def update
     rolodex = Rolodex.find(params[:id])
