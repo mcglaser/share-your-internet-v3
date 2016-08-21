@@ -9,7 +9,8 @@
       Address Line 2: <%= referral.text_field :ref_address_line_two %><br><br><br>
     </li>
     <% end %>
-    <%= link_to 'add referral', rolodex %>    
   </ul>
-  <%= f.submit %>
+  <%= f.submit 'Add Referral', :class => 'altbtn altbtn-lg altbtn-outline' %>
 <% end %>
+
+
