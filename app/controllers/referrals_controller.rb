@@ -66,7 +66,7 @@ class ReferralsController < ApplicationController
   
 
     def referral_params
-      params.require(:referral).permit(referrals_attributes: [:ref_first_name, :ref_last_name, :ref_address_line_one, :ref_address_line_two])
+      params.require(:referral).permit(:ref_first_name, :ref_last_name, :ref_address_line_one, :ref_address_line_two)
     end
 
 

@@ -17,10 +17,11 @@ Rails.application.routes.draw do
 
   resources :users do
       post 'in_it', action: :in_it
-      resources :referrals
+      resources :rolodexes
   end
 
   resources :communities
+  resources :rolodexes
   resources :referrals
 
 

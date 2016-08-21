@@ -1,3 +1,3 @@
-class Ingredient < ActiveRecord::Base
+class Referral < ActiveRecord::Base
   belongs_to :rolodex
 end

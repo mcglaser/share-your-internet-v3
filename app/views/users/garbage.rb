@@ -227,3 +227,9 @@ This WORKS so don't lose it:
 
   #########################
 
+  <% if @referral.ref_first_name.blank? %>
+<p>You're shooting blanks </p><br>
+<% else %>
+<p>Something else is da matter %></p><br><br>
+<% end %>
+
