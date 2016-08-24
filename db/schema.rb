@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820215737) do
+ActiveRecord::Schema.define(version: 20160824201328) do
 
   create_table "communities", force: :cascade do |t|
     t.string   "community_name"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 20160820215737) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "rolodex_id"
+  end
+
+  create_table "referrals_rolodexes", force: :cascade do |t|
+    t.integer "referral_id"
+    t.integer "rolodex_id"
   end
 
   create_table "rolodexes", force: :cascade do |t|
