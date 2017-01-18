@@ -1,5 +1,11 @@
 <div class="stretch">
+
 <h1>Sign In</h1>
+
+<% if flash[:danger] %>
+    <div id="error_explanation"><%= flash[:danger] %></div><br><br>
+<% end %>
+
 <%= form_for(:session, url: login_path) do |f| %>
 <%= f.label :email%>
 <%= f.email_field :email, class: 'form-control' %><br><br>
