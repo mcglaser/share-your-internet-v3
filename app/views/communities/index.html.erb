@@ -8,10 +8,11 @@
 
 
 <% if first_one_here? %>
-<h2>Nobody has registered a community in zip code <%= current_user.zip_code %></h2>
-<h2><%= link_to "Click here to register your community", new_community_path %></h2>
+<h2>Nobody has registered in zip code <%= current_user.zip_code %> yet.</h2>
+
+<h2><%= link_to "Click Here To Register Your Home Or Community", new_community_path %></h2>
 <% else %>
-<h2>Our users tell us that companies are charging them an average of <%= link_to "$#{average_internet_cost} per month", average_path %> for internet.</h2>
+<h2>In the United States, users tell us that companies are charging them an average of <%= link_to "$#{average_internet_cost} per month", average_path %> for internet.</h2>
 <h2>To start saving money, find your community....<br><br>
 If your don't see your community, register one below.</h2>
 
