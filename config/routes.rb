@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   get 'average' => 'users#average_internet'
 
+  get 'auth' => 'users#auth'
+
+  
+
   resources :users do
       post 'in_it', action: :in_it
       resources :rolodexes

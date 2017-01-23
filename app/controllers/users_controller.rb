@@ -68,6 +68,11 @@ class UsersController < ApplicationController
   end
 
 
+  def auth
+
+  end
+
+
   private
   
 
