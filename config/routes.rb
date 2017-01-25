@@ -15,9 +15,9 @@ Rails.application.routes.draw do
 
   get 'average' => 'users#average_internet'
 
-  get 'auth' => 'users#auth'
+  get 'employee' => 'static_pages#employee'
 
-  
+  get '/auth/facebook/callback' => 'employees#create'
 
   resources :users do
       post 'in_it', action: :in_it
@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :communities
   resources :rolodexes
   resources :referrals
+  resources :employees
 
 
 end

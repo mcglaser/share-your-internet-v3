@@ -69,7 +69,7 @@ class UsersController < ApplicationController
 
 
   def auth
-
+    @user = User.new
   end
 
 
