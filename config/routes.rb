@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   get 'average' => 'users#average_internet'
 
-  get 'employee' => 'static_pages#employee'
+  get 'emp' => 'static_pages#employee'
+
+ # get 'registered_employee' => 'employees#show'
 
   get '/auth/facebook/callback' => 'employees#create'
 
