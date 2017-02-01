@@ -17,8 +17,6 @@ Rails.application.routes.draw do
 
   get 'emp' => 'static_pages#employee'
 
- # get 'registered_employee' => 'employees#show'
-
   get '/auth/facebook/callback' => 'employees#create'
 
   resources :users do

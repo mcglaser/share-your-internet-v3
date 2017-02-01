@@ -6,13 +6,14 @@ class RolodexesController < ApplicationController
 
   def show
     @rolodex = Rolodex.find(params[:id])
-    if @rolodex.referrals.last.try(:nickname)
-      @recipe.referrals.build
-    end
+   # if @rolodex.referrals.last.try(:nickname)
+    #  @recipe.referrals.build
+  #  end
   end
 
   def index
     @rolodexes = Rolodex.all
+    #@rolodex_id = rolodex.id
   end
 
   def new
@@ -21,9 +22,10 @@ class RolodexesController < ApplicationController
   end
 
   def create
+    @user = current_user
     @rolodex = Rolodex.create(rolodex_params)
     if @rolodex.save
-      redirect_to community_path(current_user.community.id)
+      redirect_to user_rolodex_path(@user.id, @rolodex.id)
     else
     render 'new'
      end
@@ -31,9 +33,10 @@ class RolodexesController < ApplicationController
 
 
   def update
-    rolodex = Rolodex.find(params[:id])
-    rolodex.update(rolodex_params)
-    redirect_to rolodex
+    @user = current_user
+    @rolodex = Rolodex.find(params[:id])
+    @rolodex.update(rolodex_params)
+    redirect_to user_rolodex_path(current_user.id, @rolodex.id)
   end
 
   private
@@ -51,7 +54,7 @@ def logged_in_user
   end
 
   def correct_user
-    @user = User.find(params[:id])
+    @user = current_user
     redirect_to(root_url) unless current_user?(@user)
   end
 

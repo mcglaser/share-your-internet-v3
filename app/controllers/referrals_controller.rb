@@ -24,7 +24,7 @@ class ReferralsController < ApplicationController
   def create
     @referral = Referral.new(referral_params)
     if @referral.save
-      redirect_to sdfsad
+      redirect_to root_url
     else
     render 'new'
      end

@@ -1,5 +1,5 @@
 <%= form_for rolodex do |f| %>
-  <p>Direction: <%= f.text_field :nickname %></p><br><br>
+  <p>Rolodex Nickname: <%= f.text_field :nickname %></p><br><br>
   <ul>
     <%= f.fields_for :referrals do |referral| %>
     <li>
@@ -10,7 +10,7 @@
     </li>
     <% end %>
   </ul>
-  <%= f.submit 'Add Referral', :class => 'altbtn altbtn-lg altbtn-outline' %>
+
 <% end %>
 
 

@@ -1,12 +1,5 @@
-<div class="stretch">
-
-<h1>Your Rolodex</h1>
-
-
-<%= render 'form', rolodex: @rolodex %>
-<h2>Add A New Neighbor To This Rolodex</h2>
-<%= form_for @rolodex do |f| %>
-  <p>Rolodex Nickname: <%= f.text_field :nickname %></p><br><br>
+<%= form_for referral do |f| %>
+  
   <ul>
     <%= f.fields_for :referrals do |referral| %>
     <li>
@@ -21,8 +14,3 @@
 <% end %>
 
 
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-</div>
