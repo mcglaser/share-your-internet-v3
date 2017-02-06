@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
     belongs_to :community
-    #has_many :referrals
     has_many :referrals, through: :rolodexes
     accepts_nested_attributes_for :referrals    
 	before_save { self.email = email.downcase }
