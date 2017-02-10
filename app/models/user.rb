@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
     belongs_to :community
     has_many :referrals, through: :rolodexes
+    has_many :messages
     accepts_nested_attributes_for :referrals    
 	before_save { self.email = email.downcase }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
