@@ -34,7 +34,6 @@ $(function () {
   $(".js-more").on('click', function() {
     var id = $(this).data("id");
     $.get("/communities/" + id + "/community_data", function(data) {
-      // Replace text of body-id div
       $("#body-" + id).html(data["community_name"]);
     });
   });
