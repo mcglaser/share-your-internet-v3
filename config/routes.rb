@@ -31,7 +31,8 @@ Rails.application.routes.draw do
   resources :employees
   resources :messages
 
-
+  get 'communities/:id/body', to: 'communities#body'
+  get 'communities/:id/community_data', to: 'communities#community_data'
 
 
 end

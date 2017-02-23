@@ -19,13 +19,37 @@
 <h2>To start saving money, find your community....<br><br>
 If your don't see your community, register one below.</h2>
 
-<ul>
-<% Community.where(community_zip: current_user.zip_code).sort { |a,b| a.community_name <=> b.community_name }.each do |community| %>
-<li>
-<%= link_to community.community_name, community %><br><br>
-</li>
+
+
+<% @communities.each do |community| %>
+  <%= render partial: "community", locals: {community: community} %>
 <% end %>
-</ul>
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-more").on('click', function() {
+    var id = $(this).data("id");
+    $.get("/communities/" + id + "/community_data", function(data) {
+      // Replace text of body-id div
+      $("#body-" + id).html(data["community_name"]);
+    });
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
 
 <br><br><%= button_to "Register A New Community", new_community_path, :class => 'altbtn altbtn-lg altbtn-outline', method: :get %>
 

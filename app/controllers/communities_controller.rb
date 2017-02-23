@@ -45,7 +45,16 @@ class CommunitiesController < ApplicationController
   end
 
 
+  def body
+    community = Community.find(params[:id])
+    render json: CommunitySerializer.serialize(community)
+  end
 
+
+  def community_data
+    community = Community.find(params[:id])
+    render plain: CommunitySerializer.serialize(community)
+  end
 
 
   def destroy
