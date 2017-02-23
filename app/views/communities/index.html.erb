@@ -21,7 +21,7 @@ If your don't see your community, register one below.</h2>
 
 
 
-<% @communities.each do |community| %>
+<% Community.where(community_zip: current_user.zip_code).sort { |a,b| a.community_name <=> b.community_name }.each do |community| %>
   <%= render partial: "community", locals: {community: community} %>
 <% end %>
 
