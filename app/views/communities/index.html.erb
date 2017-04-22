@@ -21,26 +21,38 @@ If your don't see your community, register one below.</h2>
 
 
 
+<ul>
 <% Community.where(community_zip: current_user.zip_code).sort { |a,b| a.community_name <=> b.community_name }.each do |community| %>
-  <%= render partial: "community", locals: {community: community} %>
+<li>
+<h2><%= link_to community.community_name, community %></h2><a href="#" class="js-more" data-id="<%= community.id %>"> | See Members |</a><br><br>
+<ul id="community-<%= community.id %>-users"></ul>
+
+ 
+
+</li>
 <% end %>
+</ul>
 
 
-
-
+   
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".js-more").on('click', function() {
-    var id = $(this).data("id");
-    $.get("/communities/" + id + "/community_data", function(data) {
-      $("#body-" + id).html(data["community_name"]);
+    var id = parseInt($(".js-more").attr("data-id"));
+    $.get("/communities/" + id + ".json", function(data) {
+      var Users = data["users"];
+      var userList = "";
+      Users.forEach(function(user) {
+        userList += '<li>Email: ' + user["email"] + '</li><br><li>First Name: ' + user["first_name"] + '</li><br>';
+      });
+      $("#community-" + id + "-users").html(userList);
+      $(".js-more").hide();
     });
+    return false;
   });
 });
 </script>
-
-
 
 
 

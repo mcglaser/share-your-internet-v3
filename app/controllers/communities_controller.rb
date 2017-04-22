@@ -11,8 +11,12 @@ class CommunitiesController < ApplicationController
 
 
   def show
-    @community = Community.find(params[:id])
     @user = current_user
+    @community = Community.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @community}
+    end
   end
 
 
@@ -42,13 +46,10 @@ class CommunitiesController < ApplicationController
 
   def index
     @communities = Community.all
+    
   end
 
 
-  def body
-    community = Community.find(params[:id])
-    render json: CommunitySerializer.serialize(community)
-  end
 
 
   def community_data
