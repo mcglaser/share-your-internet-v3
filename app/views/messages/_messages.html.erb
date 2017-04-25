@@ -1,0 +1,5 @@
+<ol>
+  <% @messages.each do |message| %>
+  <li><%= link_to message.user_message, message %></li>
+  <% end %>
+</ol>

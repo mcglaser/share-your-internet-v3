@@ -3,7 +3,16 @@
 <h1>Message Index Page Yo</h1>
 
 
+<div class="messages">
+  <%= render 'messages/messages' %>
+</div>
 
+<%#= form_for(@comment, :url => post_comments_path(@post)) do |f|  %>
+<%= form_for([@user, @message], :remote => true) do |f|  %>
+  <%= f.text_area :user_message %>
+
+  <p><%= f.submit %></p>
+<% end %>
 
 
 </div>

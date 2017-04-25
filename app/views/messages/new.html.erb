@@ -11,4 +11,33 @@
 
 
 
+<div id="messageResult">
+  <h2 id="messageContent"></h2>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+ 
+      var values = $(this).serialize();
+ 
+      var posting = $.post('/messages', values);
+ 
+      posting.done(function(data) {
+        var message = data;
+        $("#messageContent").text(message["user_message"]);
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
 </div>
